@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <!--<link rel="stylesheet" href="/psg209dist/reset.css">-->
+    <link rel="stylesheet" href="/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="/reveal.js/dist/theme/beige.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="/reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="slides.css">
+    <!-- <link rel='stylesheet' href='chn.css'> -->
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section class='center'>
+	  <h2>Symmetry-Enriched Topological Phases</h2>
+	  <p>戚扬</p>
+	  <p>复旦大学物理系</p>
+	  <p>贵州大学, 2021年2月27日</p>
+	</section>
+
+	<section class='center'>
+	  <h3>Outline</h3>
+	  <ol>
+	    <li>Intrinsic topological order w/o symmetry</li>
+	    <li>How symmetry enriches topological orders</li>
+	    <li>Classification theory: anomaly and obstructions</li>
+	    <li>Recent progresses and challenges</li>
+	  </ol>
+	</section>
+
+	<section>
+	  <h2>Phases: Landau paradigm and Beyond</h2>
+	  <ul>
+	    <li>Landau  paradigm: phases are classified by <span>symmetry breaking</span>.</li>
+	    <img alt='Magnets in a cubic lattice' src='magnet.jpg' height=240>
+	    <img alt='Crystal' src='crystal.jpg' height=240>
+	    <img alt='Superconductor floating on a magnet' src='sc.jpg' height=240>
+	    <li>Beyond: topological phases.
+	      <br>
+	      No symmetry breaking, but still nontrivial.
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Topological orders w/o symmetry</h2>
+	  <ol>
+	    <li>Invertible topological order (iTO)
+	      <ul>
+		<li>Examples: Kitaev chain, Integer Quantum Hall, etc.</li>
+		<li>No fractional excitations.</li>
+		<li>No GSD on any manifold.</li>
+		<li>Gapless boundary states.</li>
+	      </ul>
+	    <li>Intrinsic topological order (ITO)
+	      <ul>
+		<li>Examples: Fractional Quantum Hall, toric code, etc.</li>
+		<li>Fractional excitations (anyons).</li>
+		<li>GSD on torus and high-genus manifolds.</li>
+	      </ul>
+	  </ol>
+	</section>
+
+	<section>
+	  <h2>Intrinsic topological order 101</h2>
+	  <p>X G Wen, Nat Sci Rev 3:68 (2016).</p>
+	  <ul>
+	    <li>Classifying ITO = Classifying anyons.</li>
+	    <li>Abelian anyons: e.g. quasiparticle in 1/3 Laughlin state.</li>
+	    <p>\[c^\dagger \Rightarrow a\otimes a\otimes a\]</p>
+	    <li>Non-Abelian anyons: internal state</li>
+	    <p>$$\sigma\otimes\sigma=I\oplus\psi;\sqrt2\times\sqrt2 = 1+1.$$</p>
+	    <li>Anyon fusion: $N^{ab}_c$, $d_a$.</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Anyon statistics</h2>
+	  <div class='col2wrapper'>
+	    <div>
+	      <p>Self statistics</p>
+	      <div><video onclick='this.play()' width='500px' src='self-braid.mp4' type='video/mp4'>Sorry not supported.</video></div>
+	    </div>
+	    <div>
+	      <p>Multual statistics</p>
+	      <div><video onclick='this.play()' width='500px' src='mutual-braid.mp4', type='video/mp4'>Sorry not supported.</video></div>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h2>Modular matrices</h2>
+	  <img src='STmats.png' height='500px'>
+	</section>
+
+	<section>
+	  <h2>Fermionic topological orders</h2>
+	  <ul>
+	    <li>$f$: the transparent fermion.</li>
+	    <li>$f\otimes f=I$, $d_f=1$, $\theta_f=-1$.</li>
+	    <li>Transparent: $M_{a,f}=1$.</li>
+	  </ul>
+	  <p>Example: $\nu=\frac13$ Laughlin state
+	    <ul>
+	      <li>$f$ is the electron</li>
+	      <li>Quasiparticle $a$: $a\otimes a\otimes a=f$</li>
+	    </ul>
+	  </p>
+	</section>
+
+	<section>
+	  <h2>Chiral central charge</h2>
+	  <ul>
+	    <li>Some ITOs have chiral edge states (topologically protected).</li>
+	    <li>Topological number: central charge of the edge CFT $c$.</li>
+	    <li>$c$ is partially determined by the anyon data.</li>
+	    \[e^{i\frac{2\pi}8c}=\frac1D\sum_{a}d_a^2\theta_a.\]
+	    <li>Only determined mod 8: still an independent quantum number.</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Labeling ITOs</h2>
+	  <ul>
+	    <li>We may label ITOs by $(S, T, c)$.</li>
+	    <li>$(S,T,c)$ $\leftrightarrow$ $(N^{ab}_c,\theta_a)$.</li>
+	    <li>Incomplete: different ITOs may have the same label.</li>
+	    <li>Needs gauge-dependent data: F- and R-symbols.</li>
+	    <li>Unitary Modular Tensor Category</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Example: (chiral) semion</h2>
+	  <ul>
+	    <li>Anyons: $I$, $s$.</li>
+	    <li>Fusion: $s\otimes s=I$.</li>
+	    <li>Spin: $\theta_s=i$.</li>
+	    <li>$c=1\mod8$.</li>
+	</section>
+
+      	<section>
+	  <h2>Example: FQHE</h2>
+	  <ul>
+	    <li>Anyons: $I$, $f$, $a$, $a^2$, $fa$, $fa^2$.</li>
+	    <li>Fusion: $a\otimes a\otimes a=f$.</li>
+	    <li>Spin: $\theta_a=e^{i\pi/3}$.</li>
+	    <li>$c=1\mod8$.</li>
+	</section>
+
+	<section>
+	  <h2>Example: toric code</h2>
+	  <ul>
+	    <li>Anyons: $I$, $e$, $m$, $\psi$.</li>
+	    <li>Spin: $\theta_e=\theta_m=+1$, $\theta_\psi=-1$.</li>
+	    <li>$c=0\mod8$ (nonchiral).</li>
+	  </ul>
+	  <div class="col2wrapper">
+	    <div>
+	      <p>Fusion</p>
+	      <table>
+		<tr><th>$\otimes$</th><th>$e$</th><th>$m$</th><th>$\psi$</th></tr>
+		<tr><th>$e$</th><th>$I$</th><th>$\psi$</th><th>$m$</th></tr>
+		<tr><th>$m$</th><th>$\psi$</th><th>$I$</th><th>$e$</th></tr>
+		<tr><th>$\psi$</th><th>$m$</th><th>$e$</th><th>$I$</th></tr>
+	      </table>
+	    </div>
+	    <div>
+	      <p>S-matrix</p>
+	      <table>
+		<tr><th>$2S_{ab}$</th><th>$e$</th><th>$m$</th><th>$\psi$</th></tr>
+		<tr><th>$e$</th><th>$1$</th><th>$-1$</th><th>$-1$</th></tr>
+		<tr><th>$m$</th><th>$-1$</th><th>$1$</th><th>$-1$</th></tr>
+		<tr><th>$\psi$</th><th>$-1$</th><th>$-1$</th><th>$1$</th></tr>
+	      </table>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h2>Example: (chiral) Ising</h2>
+	  <ul>
+	    <li>Anyons: $I$, $\psi$, $\sigma$.</li>
+	    <li>Spin: $\theta_\psi=-1$, $\theta_\sigma=e^{i\pi/8}$.</li>
+	    <li>$c=\frac12\mod8$ (nonchiral).</li>
+	  </ul>
+	  <div class="col2wrapper">
+	    <div>
+	      <p>Fusion</p>
+	      <table>
+		<tr><th>$\otimes$</th><th>$\psi$</th><th>$\sigma$</th></tr>
+		<tr><th>$\psi$</th><th>$I$</th><th>$\sigma$</th></tr>
+		<tr><th>$\sigma$</th><th>$\sigma$</th><th>$I+\psi$</th></tr>
+	      </table>
+	    </div>
+	    <div>
+	      <p>S-matrix</p>
+	      <table>
+		<tr><th>$2S_{ab}$</th><th>$I$</th><th>$\psi$</th><th>$\sigma$</th></tr>
+		<tr><th>$I$</th><th>$1$</th><th>$1$</th><th>$\sqrt2$</th></tr>
+		<tr><th>$\psi$</th><th>$1$</th><th>$1$</th><th>$-\sqrt2$</th></tr>
+		<tr><th>$\sigma$</th><th>$\sqrt2$</th><th>$-\sqrt2$</th><th>$0$</th></tr>
+	      </table>
+	    </div>
+	  </div>
+	</section>
+
+	<section class="center">
+		<h2>2. How symmetry enriches topological orders</h2>
+	</section>
+
+	<section>
+		<h2>Symmetry-Enriched Topological (SET) orders</h2>
+		<ul>
+			<li>1 ITO + Symmetry = Many SETs.</li>
+			<li>Three ways symmetry can enrich ITO:</li>
+			<ol>
+				<li>Symmetry can exchange anyons.</li>
+				<li>Symmetry fractionalization: fractional charge/spin.</li>
+				<li>An additional SPT layer stacked onto the ITO.</li>
+			</ol>
+		</ul>
+		<img src='sym_act.svg'>
+	</section>
+
+	<section>
+		<h2>Symmetry action on anyons</h2>
+		<ul>
+			<li>Each UMTC $\mathcal C$ has a topological symmetry group $\mathrm{Aut}_\mathcal{C}$.</li>
+			<li>Example: toric code, $\mathrm{Aut}_\mathcal{C}=\mathbb Z_2$.</li>
+			<li>Symmetry action: $\rho: G\rightarrow \mathrm{Aut}_\mathcal{C}$.</li>
+			<li>Example: toric code + $G=\mathbb Z_2$.
+			<br>Two possible $\rho$: trivial or $g:e\leftrightarrow m$.</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Symmetry fractionalization</h2>
+		<p>Example: $\mathbb Z_2$ spin liquid.</p>
+		<ul>
+			<li>Physical states must carry an integer spin.</li>
+			<li>Physical state must contain pairs of anyons: $e\otimes e=0$.</li>
+			<li>$e$ may carry spin-1/2.</li>
+		</ul>
+		<p>General cases:</p>
+		<ul>
+			<li>Physical states must carry linear rep of $G$.</li>
+			<li>Physical state must be $|a,b,\ldots;0\rangle$, s.t. $a\otimes b\otimes \cdots=0+\cdots$</li>
+			<li>$a$,$b$,..., may carry projective rep of $G$.</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Projective rep and group cohomology</h2>
+		<ul>
+			<li>Linear rep: $f(g)f(h)=f(gh)$.</li>
+			<li>Projective rep: $f(g)f(h)=e^{i\omega(g, h)}f(gh)$, $\omega(g, h)\in \mathcal A$.</li>
+			<li>Associativity: $f(g)f(h)f(k)$ gives the cocycle equation.</li>
+			\[\omega(g, h)+\omega(gh, k)=g\cdot\omega(h, k)+\omega(g, hk).\]
+			<li>Equivalence of adding a linear rep: coboundary equivalence</li>
+			\[df(g, h) = f(g)-f(gh)+g\cdot f(h)\simeq0.\]
+			<li>Group cohomology: $\omega\in H^2(G, \mathcal A)$.</li>
+			<li>$\omega$ labels equivalence classes of projective reps</li>
+		</ul>
+	</section>
+
+	<section>
+	  <h2>Symmetry fractionalization as a 2-cocycle</h2>
+	  <ul>
+	    <li>Consider the simple case: symmetry does not permute anyon types.</li>
+	    <li>$\forall a\in\mathcal C$, we have $\omega_a\in H^2[G, \mathrm U(1)]$.</li>
+	    <li>$a\otimes b=c+\cdots$, $\omega_a+\omega_b=\omega_c$.</li>
+	    <li>$\exists$ Abelian anyon $w(g, h)$, s.t. $\exp[i\omega_a(g, h)] = M_{a, w(g, h)}.$</li>
+	    <li>$w\in H^2(G, \mathcal A)$, where $\mathcal A$ is the fusion group of all Abelian anyons.</li>
+	</section>
+
+	<section>
+	  <h2>SPT layer</h2>
+	  <ul>
+	    <li>Last layer: a Symmetry-Protected Topological (SPT) order.</li>
+	    <li>Classified by $\alpha\in H^3[G, \mathrm U(1)]$.</li>
+	    <li>More complicated if nontrivial symmetry fractionalization is present.</li>
+	    <li>(Putting layers together makes things complicated...)</li>
+	  </ul>
+	</section>
+
+	<section class='center'>
+	  <h2>3. Classification theory: anomaly and obstructions</h2>
+	</section>
+
+	<section>
+	  <h2>Putting things together</h2>
+	  <ol>
+	    <li>Choose $\rho: G\rightarrow\mathrm{Aut}_{\mathcal C}$.</li>
+	    <li>Solve $dw = O_3[\rho]$.</li>
+	    <ul>
+	      <li>$O_3[\rho]\in H^3_\rho(G, \mathcal A)$ is a three-cocycle.</li>
+	      <li>It is an obstruction class: if nontrivial, then there is no solution.</li>
+	      <li>When the obstruction is trivial, solutions are $w=w_0 + w'$.</li>
+	      <li>$w_0$ is a special solution</li>
+	      <li>$w'\in H^2_\rho(G, \mathcal A)$ is a solution of $dw'=0$.</li>
+	      <li>We say $H^2_\rho(G, \mathcal A)$ is a "torsor" if $\rho$ is nontrivial.</li>
+	    </ul>
+	  </ol>
+	</section>
+
+	<section>
+	  <h2>Putting things together</h2>
+	  <ol start=3>
+	    <li>Solve $d\alpha = O_4[w]$.</li>
+	    <ul>
+	      <li>$O_4[w]\in H^4[G, \mathrm U(1)]$ is a four-cocycle: obstruction class.</li>
+	      <li>If $O_4[w]$ vanishes, $\alpha$ is classified by a torsor $H^3[G, \mathrm U(1)]$.</li>
+	    </ul>
+	</section>
+
+	<section>
+	  <h2>Anomalous SET orders</h2>
+	  <ul>
+	    <li>Interpretation of the obstruction function: the SET order is anomalous.</li>
+	    <li>Must live on the surface of a 3D topological bulk.</li>
+	    <li>Example: $\alpha = O_4[w] \in H^4[G, \mathrm U(1)]$ is a 3D SPT state.</li>
+	    <li>The symmetry fractionalization $w$ is anomalous.</li>
+	  </ul>
+	  <img src='set-spt.png'>'
+	</section>
+
+	<section>
+	  <h2>Famous example</h2>
+	  <ul>
+	    <li>Toric code, $G=\mathbb Z_2^T$, $eTmT$ state.</li>
+	    <li>Must be realized on the surface of a 3D TSC (DIII class).</li>
+	    <li>In 3D, surface of topological insulators and superconductors can be gapped and symmetric, but must realize anomalous symmetry fractionalization.</li>
+	    <li>Chong Wang and T Senthil, 2014.</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>O<sub>3</sub> obstruction</h2>
+	  <ul>
+	    <li>$\alpha = O_3[\rho] \in H^3[G,\mathcal A]$</li>
+	    <li>Can be realized on the surface of a 3D SET, with symmetry fractionalization of loop excitations, labeled by $\alpha$.</li>
+	  </ul>
+	</section>
+
+	<section class='center'>
+	  <h2>4. Recent progresses and challenges</h2>
+	</section>
+
+	<section>
+	  <h2>Onsite unitary symmetries</h2>
+	  <ul>
+	    <li>Gauge the symmetry: promote global symmetry to local (gauge) symmetry.</li>
+	    <li>Ex: $-tc_i^\dagger c_j$ $\Rightarrow$ $-te^{ia_{ij}}c_i^\dagger c_j$, $-J\sigma_i\sigma_j$ $\Rightarrow$ $-J\tau_{ij}^z\sigma_i\sigma_j$.</li>
+	    <li>Reflecting the anomaly: sym w/ local actions can be gauged.</li>
+	  </ul>
+	  <img src='onsite-action.png' height='300px'>
+	</section>
+
+	<section>
+	  <h2>Computing the O<sub>3</sub> obstruction</h2>
+	  <ul>
+	    <li><a href='https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.115147'>Barkeshli, Bonderson, Cheng, Wang; PRB <span class='vol'>100</span> 115147 (2019).</a></li>
+	    <li>Given $\rho:G\rightarrow\mathrm{Aut}_{\mathcal C}$, compute $O_3[\rho]\in H^3(G, \mathcal A)$.</li>
+	    <li>Lengthy procedure, uses details of the UMTC...</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Computing the O<sub>4</sub> obstruction</h2>
+	  <ul>
+	    <li>When $\rho$ is trivial</li>
+	    <img src='o4-trivial.jpg'>
+	    <a href='https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.115147'>Barkeshli, Bonderson, Cheng, Wang; PRB <span class='vol'>100</span> 115147 (2019).</a>
+	    <li>When $\rho$ is nontrivial...</li>
+	    <a href='https://scipost.org/10.21468/SciPostPhys.8.2.028'>Barkeshli and Cheng; SciPost Phys <span class='vol'>8</span>, 028 (2020).</a><br>
+	    <a href='https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.043033'>Bulmash and Barkeshl; PRResearch <span class='vol'>2</span> 043033 (2020).</a>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>How to compute?</h2>
+	  <ul>
+	    <li>Algorithm to accelerate such computations</li>
+	    <a href='https://arxiv.org/abs/2005.06572'>Yunqing Ouyang, Qing-Rui Wang, Zheng-Cheng Gu and YQ; arXiv:2005.06572</a>
+	    <li>Implemented using <a href='www.gap-system.org>'>GAP</a> and HAP.</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Time-reversal and crystalline symmetries</h2>
+	  <ul>
+	    <li>TRS: a few modifications to the formulation.</li>
+	    <ol>
+	      <li>Symmetry action: TRS $\rightarrow$ antiunitary autoequivalence of $\mathcal C$.</li>
+	      <li>Antiunitary action in $H^\ast[G, U(1)]$.</li>
+	    </ol>
+	    <ul>
+	      <li>Derivation is less reliable because TRS cannot be gauged.</li>
+	      <li>A lattice-model construction: <a href='https://journals.aps.org/prb/abstract/10.1103/PhysRevB.96.115107'>Meng Cheng, Zheng-Cheng Gu, Shenghan Jiang, and YQ; PRB 2017.</a></li>
+	    </ul>
+	    <li>Crystalline symmetries</li>
+	    <ul>
+	      <li>Crystalline equivalence principle</li>
+	      <a href='https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.011040'>Thorngren and Else;
+		PRX <span class='vol'>8</span>, 011040 (2018).</a>
+	      <li>Folding approach for mirror symmetry:</li>
+	      <a href='http://link.aps.org/doi/10.1103/PhysRevB.99.085128'>YQ, Chao-Ming Jian and Chenjie Wang; PRB 2019.</a> 
+	    </ul>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Future directions</h2>
+	  <ul>
+	    <li>Fermionic SETs</li>
+	    <li>3D SETs</li>
+	    <li>Fracton model w/ symmetries</li>
+	  </ul>
+      </div>
+    </div>
+
+    <script src="/reveal.js/dist/reveal.js"></script>
+    <script src="/reveal.js/plugin/notes/notes.js"></script>
+    <script src="/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+	  width: 1200,
+	  height: 675,
+	  center: false,
+	  slideNumber : 'c/t',
+	  math: {
+	      mathjax: '/mathjax/MathJax.js'
+	  },
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+	  // plugins: [ RevealMath ]
+      });
+    </script>
+  </body>
+</html>
