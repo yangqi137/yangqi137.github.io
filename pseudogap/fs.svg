@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#0000FF;stroke-width:5;stroke-miterlimit:10;}
+	.st3{fill:#0000FF;}
+	.st4{fill:none;stroke:#FF0000;stroke-width:3;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#FF0000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.8635,11.8635;}
+	.st6{font-family:'TimesNewRomanPS-ItalicMT';}
+	.st7{font-size:24px;}
+</style>
+<font horiz-adv-x="2048">
+<!-- Times New Roman is a trademark of The Monotype Corporation. -->
+<!-- Copyright: Copyright 2022 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="TimesNewRomanPS-ItalicMT" units-per-em="2048" underline-position="-223" underline-thickness="100"/>
+<missing-glyph horiz-adv-x="1593" d="M284,0l0,1280l1024,0l0,-1280M316,32l960,0l0,1216l-960,0z"/>
+<glyph unicode="F" horiz-adv-x="1251" d="M666,1284l-160,-537l178,0C764,747 824,759 864,784C903,809 944,861 986,942l38,0l-141,-494l-40,0C853,488 858,521 858,547C858,588 845,619 818,642C791,664 740,675 666,675l-180,0l-118,-409C347,193 336,145 336,121C336,96 345,77 364,64C382,51 427,42 498,37l-12,-37l-536,0l13,37C15,38 50,43 67,51C94,62 113,78 126,97C144,124 165,181 190,266l239,817C448,1149 458,1201 458,1238C458,1255 454,1270 445,1283C436,1295 424,1304 407,1310C390,1316 356,1319 305,1319l12,37l1052,0l-100,-343l-38,0C1238,1054 1242,1088 1242,1115C1242,1159 1230,1194 1206,1220C1181,1245 1150,1263 1112,1274C1085,1281 1026,1284 933,1284z"/>
+<glyph unicode="k" horiz-adv-x="909" d="M586,1422l-284,-983l114,97C541,641 622,719 659,770C671,787 677,799 677,808C677,814 675,820 671,825C667,830 659,835 648,838C636,841 615,843 586,843l-35,0l11,38l437,0l-10,-38C939,840 896,833 860,820C823,807 788,787 754,762C687,712 642,677 621,658l-86,-76C550,534 568,467 589,381C625,238 649,154 662,127C675,100 688,87 701,87C712,87 726,93 741,104C776,129 813,170 852,225l35,-25C814,109 759,49 720,20C681,-9 646,-24 614,-24C586,-24 564,-13 549,9C522,48 478,203 416,474l-137,-119l-103,-355l-156,0l332,1141l28,97C383,1255 385,1269 385,1282C385,1298 379,1311 367,1322C354,1333 336,1338 313,1338C298,1338 273,1335 240,1328l0,35z"/>
+</font>
+
+	<circle class="st0" cx="248.4" cy="249.3" r="154.8"/>
+<g>
+	<g>
+		<line class="st1" x1="248.4" y1="249.3" x2="382" y2="249.3"/>
+		<g>
+			<polygon points="403.1,249.3 373.3,261.5 380.4,249.3 373.3,237.1 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st2" x1="367.1" y1="172.6" x2="367.1" y2="144.1"/>
+		<g>
+			<polygon class="st3" points="367.1,130 375.3,149.9 367.1,145.2 359,149.9 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st2" x1="131.6" y1="327.4" x2="131.6" y2="355.8"/>
+		<g>
+			<polygon class="st3" points="131.6,369.9 123.4,350 131.6,354.8 139.7,350 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st4" x1="130.4" y1="349.6" x2="135" y2="345.8"/>
+		<line class="st5" x1="144.1" y1="338.1" x2="357.8" y2="159.1"/>
+		<line class="st4" x1="362.4" y1="155.3" x2="367" y2="151.4"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 411.6597 255.1486)" class="st6 st7">k</text>
+<text transform="matrix(0.583 0 0 0.583 422.312 263.1408)" class="st6 st7">F</text>
+</svg>

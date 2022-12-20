@@ -1,0 +1,25 @@
+.col2wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.col5050 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.col6040 {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.col7030 {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
