@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Pseudogap</title>
+
+    <link rel="stylesheet" href="/reveal.js/dist/reveal.css">
+    <!--<link rel="stylesheet" href="/reveal.js/dist/theme/beige.css" id="theme">-->
+    <link rel="stylesheet" href="/reveal.js/dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="/reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="slides.css">
+    <!-- <link rel='stylesheet' href='chn.css'> -->
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="center">
+          <h2>Phase Fluctuations in Two-Dimensional Superconductors and Pseudogap Phenomenon</h2>
+          <p>Yang Qi</p>
+          <p>Department of Physics, Fudan University</p>
+          <p>QMBC, Fuzhou 2023.</p>
+          <p>www.spinon.science/pseudogap/pseudogap-20min.html</p>
+        </section>
+
+        <section>
+          <h3>Collaborators and References</h3>
+          <ol>
+            <li>Xu-Cheng Wang (王勖成), Fudan University.</li>
+            <li>Prof. Xiao-Yan Xu (许霄琰), Shanghai Jiao Tong University.</li>
+          </ol>
+          <br>
+          <img src="xucheng.jpg" height="300">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="xiaoyan.jpg" height="270">
+          <br>
+          <ul>
+            <li>X. Wang and YQ, <a href="https://arxiv.org/abs/2212.05737">arXiv:2212.05737</a></li>
+            <li>X. Wang, X. Y. Xu and YQ, work in progress.</li>
+          </ul>
+        </section>
+
+        <section class="center">
+          <h3>Outline</h3>
+          <ol>
+            <li><b>Motivation:</b> Superconductivity, Gap and Pseudogap.</li>
+            <li><b>Theory:</b> 2D Superconductor with Fluctuating Pairing Order Parameters.</li>
+            <li><b>Numerics:</b> Determinant Quantum Monte Carlo (DQMC) simulation.</li>
+          </ol>
+        </section>
+
+        <section class="center">
+          <h2>I. Motivation</h2>
+          <h3>Superconductivity, Gap and Pseudogap.</h3>
+        </section>
+
+	<section>
+	  <h3>Superconductivity: Cooper pairs.</h3>
+          <div style="display:grid; grid-template-columns: 60% 40%">
+            <div>
+	      <ul>
+		<li>Electrons form Cooper pairs</li>
+		<ol>
+		  <li>Quasiparticle gap.</li>
+		  <li>Superconductivity: Bose condensation of Cooper pairs.</li>
+		</ol>
+		<li>Order parameter: 
+		  <span style="font-size: 1em">$\Delta = -V\langle c_{k\uparrow}c_{-k\downarrow}-c_{k\downarrow}c_{-k\uparrow}\rangle.
+		  =\Delta_0e^{i\theta}$</span>
+		</li>
+		<ol>
+		  <li>Quasiparticle gap: $\Delta_0$</li>
+		  <li>Phase coherence: $\theta(r)=\theta_0$.
+		</ol>
+	      </ul>
+	    </div>
+            <div>
+              <img src="fs.svg">
+            </div>
+          </div>
+	</section>
+
+        <section>
+          <h3>Mean-Field Behavior</h3>
+          <div style="display:grid; grid-template-columns: 60% 40%;">
+            <div>
+              <ul>
+                <li>BCS Theory is a Mean-Field Theory.</li>
+                <li>$\Delta(\vec r)=\Delta$ is constant.</li>
+                <li>$T>T_c$: single quasiparticle peak at $\omega=0$.</li>
+                <li>$T\lt T_c$: gap opens, quasiparticle peaks at $\omega=\pm\Delta$.</li>
+              </ul>
+            </div>
+            <div>
+              <img src="scphase-uniform.svg">
+              <br>
+              <img src="sc-gap.svg">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Fluctuations beyond MFT?</h3>
+              <ul>
+                <li>Beyond MFT: $\Delta = \Delta(\vec r).$</li>
+                <li>MFT is only correct in $d\geq4$?</li>
+                <li>$3d$: BCS theory (MFT) is usually good enough.
+                  <br>
+                  <img src="tc3dfluc.svg">
+                </li>
+                <li>$2d$: Quasi-LRO and BKT transition, fluctuation cannot be ignored.
+                  <br>
+                  <img src="tc2dfluc.svg">
+                </li>
+              </ul>
+        </section>
+
+        <section>
+          <h3>SC Fluctuation and Pseudogap</h3>
+          <div class="col5050">
+            <div>
+              <ul>
+                <li>No phase coherence: no SC.</li>
+                <li>Locally $\Delta\neq0$: qp gap.</li>
+                <li>Spectrum broadening:
+                  $\delta x\sim\xi\Rightarrow\delta k\sim\xi^{-1}$
+                  $\Rightarrow \delta\omega\sim v_F\delta k\sim v_F/\xi.$
+                </li>
+                <li>Pseudogap: gap above $T_c=T_{\text{BKT}}$.</li>
+                <li>PG has been observed in DQMC.</li>
+              </ul>
+            </div>
+            <div>
+              <img src="pg-puddle.svg" height="250">
+              <br>
+              <img src="wljiang2022.png" height="250">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Similar Previous Works</h3>
+          <ul>
+            <li>Coupling b/w quasiparticles and supercurrents: Franz and Millis, PRB 58 14572 (1998).</li>
+            <li>Effective theory of fluctuating SC order parameters: Kwon and Dorsey, PRB 59, 6438 (1999);
+              Banerjee, Ramakrishnan and Dasgupta, PRB 84, 144525 (2011).
+            </li>
+            <li>Our theory is simpler: only classical (spatial) fluctuation is enough.</li>
+            <li>With DQMC simulations.</li>
+          </ul>
+        </section>
+
+        <section class="center">
+          <h2>II. Theory</h2>
+          <h3>2D Superconductor with Fluctuating Pairing Order Parameters.</h3>
+        </section>
+
+        <section>
+          <h3>Classical Fluctuation Only</h3>
+             <ul>
+                <li>Finite-temperature phenomenon: classical effective theory for $T\gtrsim T_{BKT}$.</li>
+                <li>Thermodynamic limit: space-time is effective 2D.</li>
+                <li>$\xi\gg\beta\ge\tau$: ignore temporal correlations.</li>
+                <li>$\Delta(\vec r, t)\rightarrow\Delta(\vec r)$.</li>
+              </ul>
+              <img src="quasi2d.svg" height="200">
+        </section>
+
+        <section>
+          <h3>Model</h3>
+          <ul>
+            <li class="fragment">Hamiltonian:
+              $$H=\sum_k(\epsilon_k-\mu)c_{k\alpha}^\dagger c_{k\alpha} + \int d^2r \left[\Delta(\vec r)\psi_\uparrow(\vec r)\psi_\downarrow(\vec r)+\text{h.c.}\right]$$
+            </li>
+            <li class="fragment">Classical distribution:
+              $\overline{\Delta(\vec r)}=0;$  
+              $\overline{\Delta(\vec r)^\ast\Delta(\vec r')}
+              =\Delta^2_0\ e^{-\frac{|r-r^\prime|^2}{2\xi^2}}.$
+            </li>
+            <li class="fragment">Fixing $\Delta(\vec r)$: free-fermion problem. $\Delta_0$ as a small parameter.</li>
+            <li class="fragment">Averaging over $\Delta(\vec r)$: Disorder averaging.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Theoretical Results</h3>
+	  <div class="col7030">
+	    <div>
+          <ul>
+            <li>BCS theory: $\Sigma(k, \omega)=\frac{\Delta_0^2}{\omega+\xi_k+i0^+}, \xi_k=\epsilon_k-\mu$</li>
+            <li class="fragment" data-fragment-index="1">Electron self-energy: $\Sigma(k, \omega) = \frac{\Delta_0^2}{\omega+\xi_k+2i\gamma}.$</li>
+            <li class="fragment" data-fragment-index="1">Broadening: $\gamma=\frac{v_F}{2\xi}.$</li>
+            <li class="fragment" data-fragment-index="2">$G(k,\omega)=\frac{\omega+\xi_k+2i\gamma}{\omega^2-E_k^2+2i\gamma(\omega-\xi_k)}$, $E_k=\sqrt{\xi_k^2+\Delta_0^2}$.</li>
+	          <li class="fragment" data-fragment-index="3">On the FS: $G(k,\omega)=\frac{\omega+2i\gamma}{\omega^2-\Delta_0^2+2i\gamma\omega}.$
+            <li class="fragment" data-fragment-index="4">Quasiparticle pole: $\omega=\pm\sqrt{\Delta_0^2-\gamma^2}-2i\gamma$.</li>
+            <li class="fragment" data-fragment-index="5">When $\gamma\ll\Delta_0$, the broadening $\frac{\gamma}{\Delta_0}\propto\frac{\xi_{\text{BCS}}}{\xi}$.</li>
+          </ul>
+	    </div>
+	    <div>
+	      <img class="fragment" data-fragment-index="4" src="poles.svg" height="300">
+	    </div>
+	  </div>
+        </section>
+
+        <section>
+          <h3>d-Wave Pairing: Fermi arc</h3>
+          <ul>
+            <li>d-wave: $\Delta_0(k)=\Delta_0(\cos k_x-\cos k_y).$</li>
+	    <li>Same theory, replace $\Delta_0$ by $\Delta_0(k)$.</li>
+            <li>QP poles: $\omega=\pm\sqrt{\Delta_0(k)^2-\gamma^2}-2i\gamma$
+              <ol>
+                <li>$\gamma \lt \Delta_0(k)$: two peaks at $\omega=\pm\sqrt{\Delta_0(k)^2-\gamma^2}$</li>
+                <li>$\gamma \gt \Delta_0(k)$: one peak at $\omega=0$.</li>
+              </ol>
+            </li>
+          </ul>
+          <img class="center" src="arc-theory-combo.png" height="280">
+        </section>
+
+        <section class="center">
+          <h2>IV. Numerics</h2>
+          <h3>Determinant Quantum Monte Carlo (DQMC) on attractive-$U$ Hubbard Model</h3>
+        </section>
+
+        <section>
+          <h3>Attractive-$U$ Hubbard Model</h3>
+            <ul>
+              <li>$H=-t\sum_{\langle ij\rangle}\left(c_{i\alpha}^\dagger c_{j\alpha}+\text{h.c.}\right)
+                -U\sum_in_{i\uparrow}n_{i\downarrow}.$</li>
+              <li>Sign-problem free even at finite doping.</li>
+              <li>Strong s-wave superconductivity (at finite doping).</li>
+              <li>Extensively studied by Determinant Quantum Monte Carlo (DQMC).</li>
+            </ul>
+
+            <img class="center" src="hubbard.svg" height="300">
+
+        </section>
+
+        <section>
+          <h3>Superconductivity: BKT transition</h3>
+          <div style="display:grid; grid-template-columns: 65% 35%;">
+            <div>
+              <ul>
+                <li class="fragment" data-fragment-index="1">Quasi-LRO and BKT transition:</li>
+                <li class="fragment" data-fragment-index="2">Finite-size scaling:
+                  <ul>
+                    <li>Define correlation function:
+                      $P_S=\left\langle\hat\Delta^\dagger \hat\Delta\right\rangle$,
+                      $\hat\Delta=\frac1{\sqrt N}\sum_ic_{i\uparrow}c_{i\downarrow}$.
+                    </li>
+                    <li>Data collapsing: $P_SL^{\eta-2}=f(\xi/L)$.</li>
+                    <li>Essential singularity: $\xi\propto e^{at^{-\frac12}}$, where $t=(T-T_c)/T_c$.</li>
+                  </ul>
+                </li>
+                <li class="fragment" data-fragment-index="3">Determines $T_c$ and $\xi(T)$.</li>
+              </ul>
+            </div>
+            <div>
+              <img src="data-collapse.png" class="fragment" data-fragment-index="2">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Spectral function</h3>
+          <ul>
+            <li>Analytic continuation: $G(\tau)\Rightarrow G(\omega_n)\Rightarrow G^R(\omega)?$</li>
+            <li>SAC method: Sandvik,  Phys. Rev. B <span class="vol">57</span>, 10287 (1998).</li>
+          </ul>
+          <img src="Ak-s.png" height="450">
+        </section>
+
+        <section>
+          <h3>Comparison with theoretical results</h3>
+          <div class="col6040">
+            <div><img src="half_width_fit.jpg"></div>
+            <div>
+              <ul>
+                <li>Theory: $\Delta\omega=\frac{v_F}{2\xi}$.</li>
+                <li>Fitting: $\Delta\omega=\frac{v_F}2\left(\xi^{-1}+\xi_0^{-1}\right)$.</li>
+                <li>$\xi_0$: broadening due to other correlated effects.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>d-wave Superconductor: Model</h3>
+          <div class="col7030">
+            <div><ul>
+              <li>X. Y. Xu and T. Grover,<br>PRL <span class="vol">126</span>, 217002 (2021).</li>
+              <li>Designed model: $H=H_t+H_U+H_V+H_{XY}$.
+                <ul>
+                  <li>$H_t+H_U$: Hubbard model;</li>
+                  <li>$H_V=V\sum_{\langle ij\rangle}\tau_{ij}e^{i\theta_{ij}}\left(c_{i\uparrow}^\dagger c_{j\downarrow}^\dagger - c_{i\downarrow}^\dagger c_{j\uparrow}^\dagger\right)+\text{h.c.}$</li>
+                  <li>$H_{XY}$: XY model for $\theta_{ij}$.</li>
+                </ul>
+              </li>
+              <li>No sign problem.</li>
+              <li>d-wave ground state.</li>
+            </ul></div>
+            <div>
+              <img src="xyxu-model.png" width="250">
+              <br>
+              <img src="xyxu-pd.png" width="250">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>DQMC simulations: Electron spectrum</h3>
+          <p>Fermi arcs at finite temperatures.</p>
+          <img class="center" src="arc-spectrum.png" height="500">
+        </section>
+
+        <section>
+          <h3>Conclusions</h3>
+          <div class="col6040">
+            <div>
+              <ul>
+                <li>2D Superconductors: (classical) fluctuations above $T_{\text{BKT}}$.</li>
+                <li>Classical fluctuations $\Rightarrow$ pseudogap behavior.</li>
+                <li>Classical fluctuations + nodal gap function $\Rightarrow$ Fermi arcs.</li>
+                <li>Ubiquitous in 2D superconductors.</li>
+                <li>In high-$T_c$ cuprate superconductors:
+                  <ul>
+                    <li>Lower pseudogap associated w/ SC fluctuations.</li>
+                    <li>Upper pseudogap $T^\ast$?</li>
+                  </ul>
+                </li>
+              </ul>    
+            </div>
+            <div>
+              <img src="pg-full.png" width="500">
+              <p style="font-size:0.5em">S I Vedeneev 2021 Phys.-Usp. 64 890</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="/reveal.js/dist/reveal.js"></script>
+    <script src="/reveal.js/plugin/notes/notes.js"></script>
+    <script src="/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="/reveal.js/plugin/math/math.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+	  width: 1200,
+	  height: 675,
+	  center: false,
+	  slideNumber : 'c/t',
+	  math: {
+	      mathjax: '/mathjax/MathJax.js',
+        config: 'TeX-AMS_HTML-full',
+        'HTML-CSS': {
+          scale: 85
+        },
+	  },
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+	  // plugins: [ RevealMath ]
+      });
+    </script>
+
+  </body>
+</html>
