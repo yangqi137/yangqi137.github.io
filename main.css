@@ -1,1 +1,31 @@
-h1#mainTitle{background:#2e5cb8;margin:0;padding:0.6em 1em 0.6em 1em;font-size:4em;color:white}body{padding-top:3.5rem}.vol{font-weight:bold}
+h1#mainTitle {
+  background: #2e5cb8;
+  margin: 0;
+  padding: 0.6em 1em 0.6em 1em;
+  font-size: 4em;
+  color: white;
+}
+body {
+  padding-top: 3.5rem;
+}
+.vol {
+  font-weight: bold;
+}
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+}
+.navbar {
+  --bs-navbar-padding-x: 1rem;
+}
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+  }
+}
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
